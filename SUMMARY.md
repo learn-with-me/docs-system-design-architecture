@@ -1,6 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [First Chapter](chapter1.md)
+* [Java](chapter1.md)
 * [JavaScript](javascript.md)
 
