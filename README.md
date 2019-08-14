@@ -2,9 +2,39 @@
 
 Working as a full stack developer enables you to work in numerous technologies and come across various concepts. It, at times, may not be possible for you to remember everything at once, and you would want to refresh your memory with the concepts you know in your own language. To combat that, I am writing this book to document each of those concepts.
 
+### Resources
+
+##### Books
+
+```
+Cracking the coding Interview
+```
+
+##### Online
+
+```
+https://www.geeksforgeeks.org
+https://www.hackerearth.com
+https://www.interviewbit.com
+https://leetcode.com
+
+https://triplebyte.com
+
+```
+
+##### Online Help
+
+```
+https://www.w3schools.com
+
+https://www.udemy.com
+https://www.pluralsight.com
+https://www.egghead.io
+```
+
 ### License
 
-See the LICENSE file.
+Free to use.
 
 #### Contribute
 
