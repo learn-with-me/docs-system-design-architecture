@@ -18,8 +18,11 @@ https://www.hackerearth.com
 https://www.interviewbit.com
 https://leetcode.com
 
-https://triplebyte.com
+http://codeforces.com/
 
+
+https://triplebyte.com
+https://codingcompetitions.withgoogle.com/kickstart
 ```
 
 ##### Online Help
