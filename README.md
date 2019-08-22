@@ -35,6 +35,12 @@ https://www.pluralsight.com
 https://www.egghead.io
 ```
 
+##### Tools to interview candidates
+
+```
+https://karat.com/
+```
+
 ##### Tools that recruiters use
 
 ```
