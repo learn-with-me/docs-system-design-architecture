@@ -33,6 +33,8 @@ https://www.w3schools.com
 https://www.udemy.com
 https://www.pluralsight.com
 https://www.egghead.io
+
+https://www.whizlabs.com/
 ```
 
 ##### Tools to interview candidates
