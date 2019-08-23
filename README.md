@@ -17,10 +17,10 @@ https://www.geeksforgeeks.org
 https://www.hackerearth.com
 https://www.interviewbit.com
 https://leetcode.com
-https://www.codechef.com/
 
 https://www.techiedelight.com/
 http://codeforces.com/
+https://www.codechef.com/
 
 https://triplebyte.com
 https://codingcompetitions.withgoogle.com/kickstart
