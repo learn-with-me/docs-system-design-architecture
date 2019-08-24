@@ -32,6 +32,7 @@ http://www.topcoder.com/challenges
 
 ```
 https://www.w3schools.com
+https://www.tutorialspoint.com/tutorialslibrary.htm
 
 https://www.udemy.com
 https://www.pluralsight.com
