@@ -22,11 +22,15 @@ https://www.techiedelight.com/
 http://codeforces.com/
 https://www.codechef.com/
 https://clist.by/
+https://www.interviewcake.com/
 
 https://interviewing.io/
 https://triplebyte.com
 https://codingcompetitions.withgoogle.com/kickstart
 http://www.topcoder.com/challenges
+
+Random (maybe spam or Chinese but check for usefulness)
+https://www.lintcode.com/
 ```
 
 ##### Online Help
