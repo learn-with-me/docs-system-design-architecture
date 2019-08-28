@@ -49,6 +49,17 @@ https://www.egghead.io
 https://www.whizlabs.com/
 ```
 
+##### Algorithm Patterns
+
+```
+DFS/BFS
+Greedy
+Sliding window
+Divide and conquer
+Recursion
+Dynamic programming
+```
+
 ##### System Design
 
 ```
