@@ -24,6 +24,7 @@ https://www.codechef.com/
 https://clist.by/
 https://www.interviewcake.com/
 https://www.hackerrank.com/
+https://www.codewars.com/
 
 https://interviewing.io/
 https://triplebyte.com
