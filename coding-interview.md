@@ -97,6 +97,9 @@ https://www.levels.fyi/?compare=Amazon,Google,Facebook,Microsoft&track=Software%
 
 ```
 https://www.raywenderlich.com/1001-how-to-be-a-better-developer-with-programming-challenges
+https://itnext.io/technical-interview-preparation-checklist-b000125f1535
+
+https://www.geeksforgeeks.org/commonly-asked-data-structure-interview-questions-set-1/
 ```
 
 ### 
