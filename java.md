@@ -1,5 +1,11 @@
 # Java
 
+##### Preparation Links
+
+```
+https://java-design-patterns.com/
+```
+
 ##### Links
 
 ```
