@@ -35,6 +35,7 @@ https://www.algoexpert.io/
 Mock Interviews
 ---------------
 https://interviewing.io/
+https://www.pramp.com/
 https://triplebyte.com
 
 Random (maybe spam or Chinese but check for usefulness)
