@@ -54,6 +54,7 @@ https://beginnersbook.com/java-tutorial-for-beginners-with-examples/
 https://www.udemy.com
 https://www.pluralsight.com
 https://www.egghead.io
+https://www.skillshare.com/
 
 https://www.whizlabs.com/
 ```
