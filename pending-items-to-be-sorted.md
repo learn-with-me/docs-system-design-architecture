@@ -12,6 +12,8 @@ https://www.geeksforgeeks.org/google-interview-preparation-for-software-engineer
 https://www.geeksforgeeks.org/how-to-prepare-for-amazon-software-development-engineering-interview/
 https://www.geeksforgeeks.org/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/
 https://www.geeksforgeeks.org/how-to-start-learning-machine-learning/
+
+https://www.youtube.com/watch?v=HtSuA80QTyo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb
 ```
 
 GeeksForGeeks - Blogs
