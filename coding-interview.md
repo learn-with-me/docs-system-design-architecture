@@ -31,11 +31,6 @@ https://codingcompetitions.withgoogle.com/kickstart
 http://www.topcoder.com/challenges
 https://interviewcamp.io/
 
-Algorithms
-----------
-https://www.algoexpert.io/
-https://cp-algorithms.com/
-
 Mock Interviews
 ---------------
 https://interviewing.io/
@@ -72,6 +67,11 @@ Sliding window
 Divide and conquer
 Recursion
 Dynamic programming
+
+Links
+----------
+https://www.algoexpert.io/
+https://cp-algorithms.com/
 ```
 
 ##### System Design
@@ -79,6 +79,13 @@ Dynamic programming
 ```
 https://github.com/donnemartin/system-design-primer
 https://github.com/checkcheckzz/system-design-interview
+```
+
+##### Google Links
+
+```
+https://ai.google/research/people/jeff
+http://steve-yegge.blogspot.com/2008/03/get-that-job-at-google.html
 ```
 
 ### Tools
