@@ -30,7 +30,11 @@ https://www.codewars.com/
 https://codingcompetitions.withgoogle.com/kickstart
 http://www.topcoder.com/challenges
 https://interviewcamp.io/
+
+Algorithms
+----------
 https://www.algoexpert.io/
+https://cp-algorithms.com/
 
 Mock Interviews
 ---------------
