@@ -6,7 +6,7 @@ Often it is not be possible to remember everything (especially in the right orde
 
 == Index
 
-- xref:./getting started[Getting Started]
+- xref:/getting started/README.adoc[Getting Started]
 - Data Structures & Algorithms
 - System Design Fundamentals
 - System Design
