@@ -1,0 +1,35 @@
+= System Design
+
+There is no end to what you can know about designing systems. However when preparing for interviews, make sure you are aware of most commonly asked questions/concepts
+
+== Concepts
+
+=== Fundamental Concepts
+
+- Networks & Protocols (IP, DNS, HTTP, TCP etc)
+- Storage, Latency & Throughput
+- Availability
+- Caching
+- Proxies
+- Load Balancing
+- Consistent Hashing
+- Databases
+- Leader Election
+- Polling, Streaming, Sockets
+- Endpoint Protection
+- Messages & Pub-Sub
+
+=== Advanced Concepts
+
+- Database Internals
+
+== System to Design
+
+=== Fundamental
+- Unique ID Generator
+- Url Shortener
+
+== References
+
+- FreeCodeCamp - https://www.freecodecamp.org/news/systems-design-for-interviews[System Design Fundamentals]
+- GitHub - https://github.com/donnemartin/system-design-primer[Donne Martin - System Design Primer]

@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.adoc)
+* [Introduction](../README.adoc)
   * [Job Search](job-search.md)
   * [Tech Breakdown](tech-breakdown.md)
   * [HR round preparation](hr-round-preparation.md)

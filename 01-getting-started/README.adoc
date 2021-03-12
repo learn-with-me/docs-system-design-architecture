@@ -1,0 +1,30 @@
+= Getting Started
+
+Organizing yourself is the first step. Here is my list of resources that I would follow
+
+== Data Structure & Algorithms
+
+=== Books
+
+- https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850[Cracking the Coding Interview, 6th Edition], Gayle Laakmann McDowell
+- https://www.amazon.com/Elements-Programming-Interviews-Java-Insiders/dp/1517671272[Elements of Programming Interviews in Java], Adnan Aziz
+
+=== Practice Problems
+
+- https://leetcode.com/[LeetCode]
+
+
+== System Design
+
+=== Books
+
+- https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF[System Design Interview, 2nd Edition], Alex Xu
+- https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321[Designing Data-Intensive Applications], Martin Kleppmann
+
+=== Courses
+
+- https://www.educative.io/courses/grokking-the-system-design-interview[Grokking the System Design Interview]
+
+=== Papers
+
+- DynamoDB

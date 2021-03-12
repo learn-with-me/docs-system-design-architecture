@@ -6,11 +6,11 @@ Often it is not be possible to remember everything (especially in the right orde
 
 == Index
 
-- xref:/getting started/README.adoc[Getting Started]
-- Data Structures & Algorithms
-- System Design Fundamentals
-- System Design
+- xref:/01-getting-started/README.adoc[Getting Started]
+- xref:/02-data-structure-and-algorithms/README.adoc[Data Structures & Algorithms]
+- xref:/03-system-design/README.adoc[System Design]
 - Behavioral/Cultural
+- Technology
 
 == Contribute
 

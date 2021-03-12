@@ -3,8 +3,6 @@
 GeeksForGeeks - Coding
 
 ```
-https://www.bigocheatsheet.com/
-
 https://www.geeksforgeeks.org/matrix/
 https://www.geeksforgeeks.org/computer-network-tutorials/
 https://www.geeksforgeeks.org/image-processing/
