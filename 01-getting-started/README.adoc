@@ -25,6 +25,7 @@ Organizing yourself is the first step. Here is my list of resources that I would
 
 - https://www.educative.io/courses/grokking-the-system-design-interview[Grokking the System Design Interview]
 
-=== Papers
+=== Published Papers
 
 - DynamoDB
+- etc

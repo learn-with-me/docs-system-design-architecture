@@ -23,11 +23,36 @@ There is no end to what you can know about designing systems. However when prepa
 
 - Database Internals
 
+=== Papers Published
+
+- xref:papers/Amazon - Dynamo-amazons-highly-available-key-value-store.pdf[Amazon - Dynamo DB]
+- xref:papers/Facebook - Cassandra - A Decentralized Structured Storage System.pdf[Facebook - Cassandra]
+- xref:papers/Facebook - Scaling Memcache at Facebook.pdf[Facebook - Scaling Memcache at Facebook]
+- xref:papers/Google - The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf[Google - Web Search]
+- xref:papers/LinkedIn - Expresso Document DB.pdf[LinkedIn - Expresso Document DB]
+
 == System to Design
 
 === Fundamental
-- Unique ID Generator
+
+- Design a Rate Limiter
+- Design Consistent Hashing
+- Design a key-value store
+- Design a Unique ID Generator in distributed system
 - Url Shortener
+
+=== Intermediate
+
+- Design a Typeahead (search auto-complete)
+
+=== Advanced
+
+- Design a Web Crawler
+- Design a Notification System
+- Design a News Feed System
+- Design a Chat System
+- Design YouTube/Netflix
+- Design Google Drive
 
 == References
 

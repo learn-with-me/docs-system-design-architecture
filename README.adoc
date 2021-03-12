@@ -8,9 +8,12 @@ Often it is not be possible to remember everything (especially in the right orde
 
 - xref:/01-getting-started/README.adoc[Getting Started]
 - xref:/02-data-structure-and-algorithms/README.adoc[Data Structures & Algorithms]
+- Object Design
 - xref:/03-system-design/README.adoc[System Design]
+- System Architecture
 - Behavioral/Cultural
 - Technology
+- Rapid Prototyping
 
 == Contribute
 
