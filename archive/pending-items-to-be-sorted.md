@@ -58,6 +58,3 @@ Databases
 ```
 https://www.geeksforgeeks.org/dbms/
 ```
-
-
-

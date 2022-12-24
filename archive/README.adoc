@@ -1,4 +1,4 @@
-= My Interview HandBook
+= System Design & Architecture
 
 I've outlined the best strategies of preparing for technical interviews in this document, as I've uncovered over time. Core purpose of this project is to act as a checklist for myself for future needs.
 
