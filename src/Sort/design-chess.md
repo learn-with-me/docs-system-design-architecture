@@ -1,0 +1,13 @@
+# Design Chess
+
+One is to think chess board as an object instead of data structure. Similar approach was used in pacman game when developers were stuck on smell issue - where pacman/player keeps a trail or 'smell' and those devils keep on following the smell. When they modeled the smell to be property of pacman/player, it was getting extremely hard to keep track of it due player turning left/right etc. So they added smell as property of grid/board.
+Similarly, we can use chessboard as an object and can keep track of cells which are under threat etc. - this makes very easy to find if king is in check, or, also to figure out move which will put king into check.
+
+Secondly, I agree with tree and bfs approach. Only thing is - since a particular move can be made after 1,2,3 next moves, or even repeated (everything except pawn can go back to previous place) - instead of n-ary tree, this becomes directed acyclic graph.
+In fact, actual chess engines work almost like this. And it is also right that number of moves go higher exponentially (not exactly sure, but i heard there are some million possible ways just at move 8-10 or even earlier). And this is the reason why those chess engines rely on opening books. Thus, for first few moves, they don't have to generate graphs with millions nodes (i.e. moves). As the game progresses and pieces are captured, graph starts to become smaller.
+
+And then there comes value to each piece - this way the graph can be made even smaller. E.g. if I make a move which puts other player's queen under attack, then it is almost safe to assume that either other player will make a move to eliminate that threat, or I can capture the queen at next move. Either way, lot of possibilities are reduced this way.
+Of course, it is very rudimentary approach, because seasoned players go for positional play where they'll gladly sacrifice the queen if they can find forced mate, or some other forced combination which wins more material - including queen. In fact, there are grandmaster level games where queen was sacrificed, and player actually played 8-10 or even more moves and won.
+But approaches suggested by me and others above should be good enough for chess engine with nominal depth.
+
+Finally, if you make a move on a piece such that your own king is checked without enemy moving anything. That's the crux. Engine needs to detect that and flag the move invalid. This is the part that changed my entire design. That's where we need to attach behavior to board so that board is aware which cells are under threat (or can be threatened immediately). Moving a king to a cell which is currently under a threat is illegal move. Moving any other piece to such cell is legal, but maybe not recommended move.
