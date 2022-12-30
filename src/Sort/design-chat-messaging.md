@@ -32,7 +32,20 @@ One thing you can do is put the message in a pub/sub topic. Once it's in there, 
 If it’s in-memory, won’t messages get lost if machine gets rebooted or there is a power failure?
 There's no way they don't store this to disk. There's no magic here, this is probably a `poorly written article` that is omitting some details. It looks like what they do is flush to disk using Iris. The recent messages are sent from Iris’s memory and the older conversations are fetched from the traditional storage. Iris is built on top of MySQL & Flash memory.
 
+## How to scale websockets
+
+So that say max they r able to scale it out as 100k connections per machine.
+
+Instead of each thread for a client they use akka framework.
+Create an actor for each client. They also say using a thread is expensive due to the call stacks and then concurrency issues arise.
+Where as with akka it's very lightweight and concurrency issues r handled by itself.
+Moreover they tweek few system settings to increase the max connections.
+65k max connection limit is for a client and not server. Hence for a server we may scale it to anything but due to memory limitations there is a Max cap u can reach to. So 100K is something which is easily doable with 16Gb heap assigned.
+
+## Other References
+
 - [Facebook Real-time Chat Architecture Scaling With Over Multi-Billion Messages Daily](https://scaleyourapp.com/facebook-real-time-chat-architecture-scaling-with-over-multi-billion-messages-daily/)
 - YT [MySQL for Messaging - @Scale 2014 - Data](https://www.youtube.com/watch?v=eADBCKKf8PA)
 - Meta [Building Mobile-First Infrastructure for Messenger](https://engineering.fb.com/2014/10/09/production-engineering/building-mobile-first-infrastructure-for-messenger/)
 - Slideshare [Storage Infrastructure Behind Facebook Messages](https://www.slideshare.net/feng1212/storage-infrastructure-behind-facebook-messages-31360618?qid=7b23455d-04ec-413c-b36f-29742d8ac4fe&v=&b=&from_search=11) - Info on the persistence tech in fb, I find the presentation helpful to understand the storage layer
+- [https://labs.ripe.net/author/ramakrishna_padmanabhan/reasons-dynamic-addresses-change/](https://labs.ripe.net/author/ramakrishna_padmanabhan/reasons-dynamic-addresses-change/) - if the IP address changes then a new WebSocket connection will need to be established. WS connections dropping is pretty normal. Once a new connection is established, the client can indicate what message it received last and it can send messages that weren't sent yet.

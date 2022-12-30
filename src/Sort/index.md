@@ -49,6 +49,7 @@ You won't have cold start with Provisioned Concurrency. You are gonna pay for it
 ### Other References
 
 - [https://databricks.com/glossary/lambda-architecture](https://databricks.com/glossary/lambda-architecture)
+- [https://en.wikipedia.org/wiki/Lambda_architecture](https://en.wikipedia.org/wiki/Lambda_architecture)
 
 ## Design Instagram vs Twitter
 
@@ -74,6 +75,9 @@ In a systems design interview, it is sufficient to just talk about topics and su
 [2] “Partitions are not exposed to users.” [https://medium.com/google-cloud/google-cloud-pub-sub-ordered-delivery-1e4181f60bc8](https://medium.com/google-cloud/google-cloud-pub-sub-ordered-delivery-1e4181f60bc8)
 
 - Confluent [Build Services on a Backbone of Events](https://www.confluent.io/blog/build-services-backbone-events/)
+- Confluent [Apache Kafka Supports 200K Partitions Per Cluster](https://www.confluent.io/blog/apache-kafka-supports-200k-partitions-per-cluster/)
+- [Kafka vs Redis Pub-Sub, Differences which you should know](https://blog.containerize.com/2021/04/09/kafka-vs-redis-pub-sub-differences-which-you-should-know/)
+- YT - [Kafka: A Modern Distributed System](https://www.youtube.com/watch?v=Ea3aoACnbEk)
 
 ## Distributed Consensus
 
@@ -133,7 +137,6 @@ If thats not possible then macbook sidecar with ipad and using this i can write 
   - [DDIA notes - ibillett](https://github.com/ibillett/designing-data-intensive-applications-notes)
   - [DDIA notes - xx](https://timilearning.com/posts/ddia/notes/)
   - [DDIA Chapter 1](https://comeshare.net/2020/04/02/designing-data-intensive-applications-chapter-1-reliable-scalable-and-maintainable-applications/)
-- [TPM Behavioral Questions](https://github.com/javadroider/interview-prep/blob/master/interview/manager-faqs.md)
 - [https://chiragshah9696.medium.com/interviews-interviews-interviews-7407faf4c7cc](https://chiragshah9696.medium.com/interviews-interviews-interviews-7407faf4c7cc)
 - [https://betterprogramming.pub/top-30-apple-coding-interview-questions-with-solutions-19990071ebfc](https://betterprogramming.pub/top-30-apple-coding-interview-questions-with-solutions-19990071ebfc)
 - MongoDB
@@ -162,6 +165,7 @@ If thats not possible then macbook sidecar with ipad and using this i can write 
   - [Overview of Modern Concurrency and Parallelism Concepts](https://nikgrozev.com/2015/07/14/overview-of-modern-concurrency-and-parallelism-concepts/)
   - Educative [Multithreading](https://github.com/rahulgupta-rg/java-senior-interviews/blob/main/1_Introduction-combined.pdf) notes
   - [Introduction to Thread Pools in Java | Baeldung](https://www.baeldung.com/thread-pool-java-and-guava)
+  - [Java Concurrency and Multithreading Tutorial](http://tutorials.jenkov.com/java-concurrency/index.html)
 - REST vs RPC
   - [gRPC vs REST: Understanding gRPC, OpenAPI and REST and when to use them in API design | Google Cloud Blog](https://cloud.google.com/blog/products/api-management/understanding-grpc-openapi-and-rest-and-when-to-use-them)
   - YT [Distributed Systems lecture series](https://youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB)
@@ -169,6 +173,9 @@ If thats not possible then macbook sidecar with ipad and using this i can write 
   - [Design Tic Tac Toe](https://workat.tech/machine-coding/practice/design-tic-tac-toe-smyfi9x064ry) - establish a contract of a board that an implementer would fulfill
   - [Snake and Ladder](https://workat.tech/machine-coding/practice/snake-and-ladder-problem-zgtac9lxwntg)
   [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) - probabilistic data structure
+  - [https://leetcode.com/problems/design-search-autocomplete-system/](https://leetcode.com/problems/design-search-autocomplete-system/)
+  - [https://www.oodesign.com](https://www.oodesign.com)
+  - [https://github.com/iluwatar/java-design-patterns](https://github.com/iluwatar/java-design-patterns)
 - [Bloom Filter](https://pages.cs.wisc.edu/~cao/papers/summary-cache/node8.html)
   - [Ribbon Filter](https://engineering.fb.com/2021/07/09/data-infrastructure/ribbon-filter/)
 - [https://serverfault.com/questions/238417/are-networks-now-faster-than-disks](https://serverfault.com/questions/238417/are-networks-now-faster-than-disks)
@@ -178,3 +185,10 @@ If thats not possible then macbook sidecar with ipad and using this i can write 
 - [Optimizing Flipkart’s Serviceability Data from 300 GB to 150 MB in-memory](https://blog.flipkart.tech/remodelling-flipkarts-serviceability-data-an-optimization-journey-from-300-gb-to-150-mb-in-memory-5c7e9c38bde)
 - Leadership Principles [https://www.levels.fyi/blog/amazon-leadership-principles.html](https://www.levels.fyi/blog/amazon-leadership-principles.html)
   - YT - [Amazon Interrview Questions](https://www.youtube.com/playlist?list=PLLucmoeZjtMR990BPePcn5WgoCM_OX0YB) playlist
+- [https://druid.apache.org/](https://druid.apache.org/)
+- [https://linkerd.io/](https://linkerd.io/)
+- [theoretical-maximum-number-of-open-tcp-connections-that-a-modern-linux](https://stackoverflow.com/questions/2332741/what-is-the-theoretical-maximum-number-of-open-tcp-connections-that-a-modern-lin)
+- [Exclusive: a behind-the-scenes look at Facebook release engineering](https://arstechnica.com/information-technology/2012/04/exclusive-a-behind-the-scenes-look-at-facebook-release-engineering/) - explains a bit on how to copy 38 GB file located in US to all the 1000 Data Center located in China. All Data Center are loaded with work and using all bandwidth might affect the work. (BitTorrent like question)
+- [Sequence Generation in Cloud Spanner](https://cloud.google.com/solutions/sequence-generation-in-cloud-spanner)
+  - Stack Overflow [Distributed Sequence Number Generation](https://stackoverflow.com/questions/2671858/distributed-sequence-number-generation)
+  - Redis [INCR](https://redis.io/commands/incr/)

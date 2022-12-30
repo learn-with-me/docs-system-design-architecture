@@ -70,11 +70,13 @@ Unlike other candidates, at this point, you’ve got a solid 20 minutes left to.
 - Go through system design primer -> Grokking -> YT
   - Donne Martin - [System Design Primer](https://github.com/donnemartin/system-design-primer?trk=public_post_comment-text)
   - [Low Level Design primer](https://github.com/prasadgujar/low-level-design-primer/blob/master/solutions.md)
-  - [Notion - SDI](https://www.notion.so/System-Design-Interview-42ba04ec67a9413fadad5b718fbd3e81) notes
+  - [Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/) - Martin Fowler
+  - [Notion - SDI](https://www.notion.so/System-Design-Interview-42ba04ec67a9413fadad5b718fbd3e81) notes, same as [here](https://www.notion.so/ashiskar/System-Design-Interview-42ba04ec67a9413fadad5b718fbd3e81)
   - [https://divyanshu-vibhu.gitbook.io/system-design/](https://divyanshu-vibhu.gitbook.io/system-design/)
   - [https://www.linkedin.com/posts/aditya-malshikhare_system-design-basics-handbook-ugcPost-6801799624563814400-jtT6](https://www.linkedin.com/posts/aditya-malshikhare_system-design-basics-handbook-ugcPost-6801799624563814400-jtT6)
   - [System Design Master doc](https://drive.google.com/file/d/16wtG6ZsThlu_YkloeyX8pp2OEjVebure/view)
   - [The Bible of Distributed System Design Interviews](https://www.thinksoftwarelearning.com/courses/SystemDesignBible)
+  - [https://timilearning.com/](https://timilearning.com/)
 - Reddit [System Design Framework](https://www.reddit.com/r/cscareerquestions/comments/kd13sx/sharing_the_system_design_framework_ive_used_that/)
   - [https://www.lewis-lin.com/blog/pedals-method](https://www.lewis-lin.com/blog/pedals-method)
 - Example - [Design campaign to collect donations](https://excalidraw.com/#room=b7ee44759dcc9ba29156,nzgKYEVNtVCaP3CGHsGGUQ)
@@ -85,7 +87,8 @@ Unlike other candidates, at this point, you’ve got a solid 20 minutes left to.
 - YT [Notification Service System Design Interview Question to handle Billions of users & Notifications](https://www.youtube.com/watch?v=CUwt9_l0DOg)
 - YT [David Malans cs75 scalability](https://youtu.be/-W9F__D3oY4)
 - YT [david huffman's talk, scaling up talk](https://youtu.be/pjNTgULVVf4)
-- YT - [Zoom System Design | WhatsApp / FB Video Calling System Design](https://youtu.be/G32ThJakeHk)
+- YT [Why the Internet went dark for two hours - Let's discuss the Akamai outage](https://youtu.be/fuGNXbfDLKc)
+- YT - [Scaling Push Messaging for Millions of Devices @Netflix](https://youtu.be/6w6E_B55p0E)
 - [Scalability for dummies](https://www.lecloud.net/tagged/scalability)
 - [Designing data intensive appliations](https://dataintensive.net/)
 - [https://blog.interviewcamp.io/live-capacity-estimation-caching-levels/](https://blog.interviewcamp.io/live-capacity-estimation-caching-levels/)
@@ -107,3 +110,14 @@ Unlike other candidates, at this point, you’ve got a solid 20 minutes left to.
   - GitHub [Mobile System design](https://github.com/weeeBox/mobile-system-design)
 - [How to Use Consistent Hashing in a System Design Interview?](https://medium.com/codex/how-to-use-consistent-hashing-in-a-system-design-interview-b738be3a1ae3) - In a distributed system, any server responsible for a huge partition of data can become a bottleneck for the system. To handle these issues, Consistent Hashing introduces a new scheme of distributing the tokens to physical nodes. Instead of assigning a single token to a node, the hash range is divided into multiple smaller ranges, and each physical node is assigned several of these smaller ranges. Each of these subranges is considered a Vnode. Vnodes are randomly distributed across the cluster and are generally non-contiguous so that no two neighboring Vnodes are assigned to the same physical node or rack.
 - [How we rebuilt the Walmart Autocomplete Backend](https://medium.com/walmartglobaltech/how-we-rebuilt-the-walmart-autocomplete-backend-10efe71d624a)
+- [https://sre.google/workbook/non-abstract-design/](https://sre.google/workbook/non-abstract-design/)
+- Google SRE [Distributed ImageServer](https://docs.google.com/presentation/d/1jW2S9yYZf5DYmri0KlOu1DFSZMTeOswl6ce5V9xMIOQ/edit?resourcekey=0-hzg8gPkGgiOc6HbBqalmWg#slide=id.p) presentation
+- [Latency Numbers every programmer should know](https://gist.github.com/jboner/2841832)
+- Stripe [Idempotent Requests](https://stripe.com/docs/api/idempotent_requests)
+- [Understanding RPO and RTO | Druva](https://www.druva.com/blog/understanding-rpo-and-rto/)
+- [How is data read?](https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/dml/dmlAboutReads.html) - How Cassandra uses the Bloom filter?
+- Doordash [Building Faster Indexing with Apache Kafka and Elasticsearch](https://doordash.engineering/2021/07/14/open-source-search-indexing/)
+- [Building Mobile-First Infrastructure for Messenger](https://engineering.fb.com/2014/10/09/production-engineering/building-mobile-first-infrastructure-for-messenger/)
+- System Designs
+  - YT - [Netflix System Design | YouTube System Design](https://youtu.be/lYoSd2WCJTo)
+  - YT - [Zoom System Design | WhatsApp / FB Video Calling System Design](https://youtu.be/G32ThJakeHk)
