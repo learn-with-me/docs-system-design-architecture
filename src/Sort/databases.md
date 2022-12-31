@@ -20,17 +20,14 @@ how much is typically the max or recommended size of each shard of say MySQL or 
 The link below in "Data Sharing" claims that the avg shard size ranges from 20 to 40 GB. Perhaps this is for MySQL.
 [https://www.codercrunch.com/design/634265/designing-instagram#mcetoc_1dv10vl8s1l](https://www.codercrunch.com/design/634265/designing-instagram#mcetoc_1dv10vl8s1l)
 
-## Million Records report
+## Replication
 
-Let's say there is a table which has millions of records and records get updated frequently in that table. If you had to build a report for end users to show the statics of each hour, what would be your approach. Keep performance in mind since table has huge number of records.
+Why replicate data?
 
-It can be done in may ways. Each will have its own pros and cons:
-
-1. Complex Indexing with tradeoff in write performance and less extensible in case any change is needed in report due to cost of reindexing.
-2. Create multiple replicas and serve report by any replica only. This might work but if read txn is not implemented optimally may lead to replication lag and can affect the overall perf.
-3. View in db, this wont be managable and less extensible. For critical db , views are usually not appreciated.
-4. Send the metrics to timeseries monitoring db like prometheus. Not sure if this is right use case for prometheus and may require metrics to be published explicity from write path or prom will have read from slave. Both the ways addition of code is making it less modular in my view.
-5. These days DBs can emit change event in the form of stream in async. We can enable these stream of updates. Write a consumer for these updates stream of event. Patch the update in some cold storage and let the user design amd customize their own report in cold storage or write an api for report powered by cold storage. This approach will not touch any code in write path hence no performance degradation in write path and events are sent async so no read performace degragation of db. All we might need is to scale the DB config as per event stream requirement.
+- improving availability
+- enabling disaster recovery
+- improve performance, leveraging Read Replicas
+- keep data geographically close to the user, e.g., CDN
 
 ## Index
 
@@ -45,6 +42,18 @@ In Cassandra's hintedhandoff or Schemaless's Buffered writes  - How is the case 
 My hypothesis is that : master failure -> writes are still accepted and written to secondary master -> till master is back up (or another is elected) and then new master replays these writes from secondary so everything is up to date. Only caveat : Immediate writes may not be read available.
 
 - [High-Water Mark](https://martinfowler.com/articles/patterns-of-distributed-systems/high-watermark.html)
+
+## Million Records report
+
+Let's say there is a table which has millions of records and records get updated frequently in that table. If you had to build a report for end users to show the statics of each hour, what would be your approach. Keep performance in mind since table has huge number of records.
+
+It can be done in may ways. Each will have its own pros and cons:
+
+1. Complex Indexing with tradeoff in write performance and less extensible in case any change is needed in report due to cost of reindexing.
+2. Create multiple replicas and serve report by any replica only. This might work but if read txn is not implemented optimally may lead to replication lag and can affect the overall perf.
+3. View in db, this wont be managable and less extensible. For critical db , views are usually not appreciated.
+4. Send the metrics to timeseries monitoring db like prometheus. Not sure if this is right use case for prometheus and may require metrics to be published explicity from write path or prom will have read from slave. Both the ways addition of code is making it less modular in my view.
+5. These days DBs can emit change event in the form of stream in async. We can enable these stream of updates. Write a consumer for these updates stream of event. Patch the update in some cold storage and let the user design amd customize their own report in cold storage or write an api for report powered by cold storage. This approach will not touch any code in write path hence no performance degradation in write path and events are sent async so no read performace degragation of db. All we might need is to scale the DB config as per event stream requirement.
 
 ## Other References
 
