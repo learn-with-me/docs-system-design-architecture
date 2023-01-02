@@ -42,6 +42,21 @@ Where as with akka it's very lightweight and concurrency issues r handled by its
 Moreover they tweek few system settings to increase the max connections.
 65k max connection limit is for a client and not server. Hence for a server we may scale it to anything but due to memory limitations there is a Max cap u can reach to. So 100K is something which is easily doable with 16Gb heap assigned.
 
+## Message Ordering
+
+How is correct message ordering is preserved in a messaging app?
+
+Multiple participants sending messages parallely from different devices to your application cannot easily agree on the same order (that's the nature of distributed systems). There are sophisticated algorithms to solve this very problem. But a messaging platform's core requirement should not address this problem because real time interaction takes higher priority.
+
+What it can control is that the ordering for each user remains intact. That it does by timestamp + sequence number on the server which has received the message. This way your experience for both users separately remains consistent even if they open the app on multiple devices.
+
+There could be different approaches. For instance telegram and whatsApp uses opposite approaches to re-order messages at client side. You can check it. For example . You can switch off your internet and send some messages in Telegam group and whatsApp group. wait enougth time to be sure to have new messages in both groups. you will see a difference. if we are talking about whatsApp,Discord .. These use actor model. Each group has it own actor. This actor defines total ordering. So you have total order within single group and not in whole messages.
+
+But ideally in an interview if the ordering logic is asked them the interviewer would be more interested to see what the candidates approach is towards ordering. Whether it is lamports or vector clocks and why. It's better for us to discuss about trade-off in different approaches. for example if we know 2 different approaches we can  "compare" these approaches during an interview and point out what are props and cons of these different approaches in case of particular requirements.
+
+- [Twitter IDs](https://developer.twitter.com/en/docs/twitter-ids)
+- Akka [Motivation behind Actors](https://doc.akka.io/docs/akka/current/typed/guide/actors-motivation.html) - As for me the main idea of actor = lightweight thread + inbound queue. Each host can have a lot of actors (much more compare to number of CPU). Actors send messages to each other( all messages will be placed to inboud queue before processing).if we have an inbound queue for messages we have an ordering and dont have contention .  of course there more details .. for example - supervision, actor hierarchy
+
 ## Other References
 
 - [Facebook Real-time Chat Architecture Scaling With Over Multi-Billion Messages Daily](https://scaleyourapp.com/facebook-real-time-chat-architecture-scaling-with-over-multi-billion-messages-daily/)

@@ -84,7 +84,7 @@ Unlike other candidates, at this point, you’ve got a solid 20 minutes left to.
   - [LeetCode](https://leetcode.com/discuss/general-discussion/1082786/System-Design%3A-Designing-a-distributed-Job-Scheduler-or-Many-interesting-concepts-to-learn)
 - YT [System Design Interview](https://www.youtube.com/channel/UC9vLsnF6QPYuH51njmIooCQ) channel
 - YT [Gaurav Sen series](https://youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX)
-- YT [Notification Service System Design Interview Question to handle Billions of users & Notifications](https://www.youtube.com/watch?v=CUwt9_l0DOg)
+- YT [Software Architecture Monday](https://www.youtube.com/playlist?list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar) playlist
 - YT [David Malans cs75 scalability](https://youtu.be/-W9F__D3oY4)
 - YT [david huffman's talk, scaling up talk](https://youtu.be/pjNTgULVVf4)
 - YT [Why the Internet went dark for two hours - Let's discuss the Akamai outage](https://youtu.be/fuGNXbfDLKc)
@@ -118,6 +118,12 @@ Unlike other candidates, at this point, you’ve got a solid 20 minutes left to.
 - [How is data read?](https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/dml/dmlAboutReads.html) - How Cassandra uses the Bloom filter?
 - Doordash [Building Faster Indexing with Apache Kafka and Elasticsearch](https://doordash.engineering/2021/07/14/open-source-search-indexing/)
 - [Building Mobile-First Infrastructure for Messenger](https://engineering.fb.com/2014/10/09/production-engineering/building-mobile-first-infrastructure-for-messenger/)
+- [How machine learning powers Facebook’s News Feed ranking algorithm](https://engineering.fb.com/2021/01/26/ml-applications/news-feed-ranking/)
+- [Azure Network Latency](https://learn.microsoft.com/en-us/azure/networking/azure-network-latency)
+- KV Memory Design
+  - [LevelDB Benchmarks](http://www.lmdb.tech/bench/microbench/benchmark.html) - The KV memory store we designed is very similar to a basic version of levelsDB - which using 2011 hardware is able to handle 700k writes per second.
+  - [RocksDB Performance Benchmarks](https://github.com/facebook/rocksdb/wiki/Performance-Benchmarks)
 - System Designs
   - YT - [Netflix System Design | YouTube System Design](https://youtu.be/lYoSd2WCJTo)
   - YT - [Zoom System Design | WhatsApp / FB Video Calling System Design](https://youtu.be/G32ThJakeHk)
+  - YT - [Notification Service System Design Interview Question to handle Billions of users & Notifications](https://www.youtube.com/watch?v=CUwt9_l0DOg)

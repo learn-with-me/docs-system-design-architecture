@@ -60,6 +60,7 @@ It can be done in may ways. Each will have its own pros and cons:
 - [How Discord stores billions of messages](https://discord.com/blog/how-discord-stores-billions-of-messages)
 - [How Discord indexes billions of messages](https://discord.com/blog/how-discord-indexes-billions-of-messages)
 - YT [Types of NoSQL Databases | Why you should learn NoSQL before your next System Design Interview](https://www.youtube.com/watch?v=Tkr_2Hl8StE)
+- YT [AWS re:Invent 2018: Amazon DynamoDB Under the Hood: How We Built a Hyper-Scale Database (DAT321)](https://youtu.be/yvBR71D0nAQ)
 - [https://www.sqlite.org/fasterthanfs.html](https://www.sqlite.org/fasterthanfs.html)
 - [Index Merge Optimization](https://dev.mysql.com/doc/refman/8.0/en/index-merge-optimization.html)
 - [A deeper dive into Facebook's MySQL 8.0 migration](https://www.zdnet.com/article/a-deeper-dive-into-facebooks-mysql-8-0-migration/)
@@ -70,3 +71,5 @@ It can be done in may ways. Each will have its own pros and cons:
 - [Building Distributed Locks with the DynamoDB Lock Client](https://aws.amazon.com/blogs/database/building-distributed-locks-with-the-dynamodb-lock-client/)
 - [The Architecture of Schemaless, Uber Engineering's Trip Datastore Using MySQL](https://eng.uber.com/schemaless-part-two-architecture/)
 - [Search Engine Indexing](https://en.wikipedia.org/wiki/Search_engine_indexing)
+- [Secrets of ClickHouse Query Performance](https://www.youtube.com/watch?v=6WICfakG84c) - ClickHouse is an open-source column-oriented DBMS (columnar database management system) for online analytical processing (OLAP)
+- [Apache Parquet: Parquet file internals and inspecting Parquet file structure](https://www.youtube.com/watch?v=rVC9F1y38oU) - a free and open-source column-oriented data storage format.

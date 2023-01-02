@@ -43,3 +43,10 @@ Helped my team learn how to do spikes properly, how to prioritize high-risk task
 
 - [TPM Behavioral Questions](https://github.com/javadroider/interview-prep/blob/master/interview/manager-faqs.md)
 - Someone's compiled notes [here](https://docs.google.com/document/u/0/d/1NB7U2e8UkG1nEqiYz_r4tXWymyesnaGNmenZGLwOZzY/mobilebasic)
+- Product Management
+  - [Andrew Chen's website](https://andrewchen.com/)
+  - [Lenny Rachitsky](https://www.lennyrachitsky.com/) - article: how to get into product management and thrive
+  - [StellarPeers](https://medium.com/stellarpeers) - some interesting cases
+  - [80 Articles and Books that will Make you a Great Product Manager](https://medium.com/@noah_weiss/50-articles-and-books-that-will-make-you-a-great-product-manager-aad5babee2f7)
+  - [The Ultimate Guide to Resources for Product Managers](https://www.productplan.com/learn/resources-for-product-managers/)
+  - Quora [What are the best resources/courses for becoming a better product manager?](https://www.quora.com/What-are-the-best-resources-courses-for-becoming-a-better-product-manager)
