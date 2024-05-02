@@ -1,0 +1,1111 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://learn-with-me.github.io/docs-system-design-architecture/Sort/system-design-template/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>System Design Template - System Design & Architecture</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ABC123"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ABC123",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ABC123",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#system-design-template" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://learn-with-me.github.io/docs-system-design-architecture/" title="System Design &amp; Architecture" class="md-header__button md-logo" aria-label="System Design & Architecture" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            System Design & Architecture
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              System Design Template
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/learn-with-me/docs-system-design-architecture" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://learn-with-me.github.io/docs-system-design-architecture/" title="System Design &amp; Architecture" class="md-nav__button md-logo" aria-label="System Design & Architecture" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    System Design & Architecture
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/learn-with-me/docs-system-design-architecture" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-system-design-fundamentals/" class="md-nav__link">
+        System Design Topics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Sort</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Sort" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Sort
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../availability/" class="md-nav__link">
+        Availability
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-aurora/" class="md-nav__link">
+        Amazon Aurora
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-vs-frontend/" class="md-nav__link">
+        Backend vs Frontend
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavioral/" class="md-nav__link">
+        Behavioral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../counters-in-large-scale-systems/" class="md-nav__link">
+        Counters in Large scale systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        Databases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-alert-system/" class="md-nav__link">
+        Design an Alert System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-an-application/" class="md-nav__link">
+        Design an application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-chat-messaging/" class="md-nav__link">
+        Design Chat Messaging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-chess/" class="md-nav__link">
+        Design Chess
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-db-connector/" class="md-nav__link">
+        Design a DB Connector
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-delayed-payment/" class="md-nav__link">
+        Design a system for delayed payment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-distributed-queue/" class="md-nav__link">
+        Design distributed queue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-email-system/" class="md-nav__link">
+        Design Email System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-google-doc/" class="md-nav__link">
+        Design a Google Doc system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-log-transporter/" class="md-nav__link">
+        Design Read 1Mb log files from client machines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-real-time-collab/" class="md-nav__link">
+        Design Real-time collab tool
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-stock-exchange/" class="md-nav__link">
+        Design a Stock Exchange
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-ticket-sales-service/" class="md-nav__link">
+        Design Ticket Sales service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-top-k-frequent/" class="md-nav__link">
+        Design top k frequent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashmap-based-caching/" class="md-nav__link">
+        HashMap based caching
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview-experience/" class="md-nav__link">
+        Interview Experience
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../load-balancing/" class="md-nav__link">
+        Load Balancing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rate-limiting-throttling/" class="md-nav__link">
+        Rate Limiting / Throttling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shard-rdbms/" class="md-nav__link">
+        Shard RDBMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          System Design Template
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        System Design Template
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#think-about" class="md-nav__link">
+    Think about
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-writeup-from-someone" class="md-nav__link">
+    Example writeup from someone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rubric" class="md-nav__link">
+    Rubric
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-references" class="md-nav__link">
+    Other References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transactions-in-shopping/" class="md-nav__link">
+        Transactions in Shopping
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#think-about" class="md-nav__link">
+    Think about
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-writeup-from-someone" class="md-nav__link">
+    Example writeup from someone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rubric" class="md-nav__link">
+    Rubric
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-references" class="md-nav__link">
+    Other References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/learn-with-me/docs-system-design-architecture/edit/master/docs/Sort/system-design-template.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="system-design-template">System Design Template</h1>
+<ol>
+<li>API for client, Synchronous vs async, concurrent or chunks, push or pull, back pressure</li>
+<li>Queues – if client offline or for async operation or pub-sub (1:N, N:1, N:M)</li>
+<li>App server - ?</li>
+<li>DB/Storage – Schema, Consistency, RDMBS vs Wide col vs KeyVal vs ObjStore vs HDFS, write heavy</li>
+<li>Scaling
+  a. Load balancer w/secondary and sticky sessions
+  b. Sharding
+  c. Caching for CDN or DB or App along with LRU, consistent hashing and sync with primary DB
+  d. multiple app servers
+  e. Deprioritize some msgs during major known events like new year</li>
+<li>Fault tolerance – Replication, monitoring, hot vs cold standby</li>
+<li>clients - encryption, heartbeats</li>
+</ol>
+<p>The challenge is knowing what areas to focus on in 40 minutes.</p>
+<blockquote>
+<p>Once you have a decent baseline and backing, you can end up in a too detailed design or too detailed world. Don't over do this part of preparation.</p>
+</blockquote>
+<h2 id="think-about">Think about</h2>
+<p>Can you take a vague goal (”design Twitter”) and come up with a fully-developed proposal? Are you able to spot ambiguities in the requirements and ask good clarifying questions? Are you able to distinguish between features that really need to go into the MVP versus ones that are really extended/optional features that can be punted?</p>
+<p>Do you proactively look for issues with your design, or do you need prodding from the interviewer?</p>
+<p>Are you able to assess different options and make trade-offs, or are you attached to certain ways of doing things?</p>
+<p>Do you have a good sense of what to prioritize, or do you get lost in the weeds?</p>
+<p>Are you able to produce an actual deliverable within the timeframe you are given? Does your design meet all functional and non-functional requirements? In particular, does it scale? While you are not expected to produce an industry-grade design in 45 minutes ー this would be quite unreasonable to ask ー what you produce should be something that can be turned over to a product team for implementation.</p>
+<p>Are you able to achieve the basic requirements quickly so that you have time to extend your design in an interesting way?</p>
+<p>Are you able to use speech, notes, and diagrams to communicate your ideas clearly to someone else? Are you able to take feedback?</p>
+<h2 id="example-writeup-from-someone">Example writeup from someone</h2>
+<p>The MVP</p>
+<p>The first order of business in a systems design interview is to achieve the functional requirements. This typically entails designing the API and the data model. Many interviewees insist on starting out with an MVP, but in the interest of speed, I would not literally build an MVP because, as a senior engineer, there is minimal signal to be communicated to the interviewer by doing so. If you spend too much time designing an MVP, you may not have enough time to completely scale out your design and inadvertently communicate that you’re more of an L4 as opposed to an L5/L6.</p>
+<p>For example, if it is clear you will need a WebSockets endpoint, skip past the GET and POST endpoints and go straight to the WebSockets endpoint. If desired, you can use the time you saved to sketch out event dispatch code for your WebSockets endpoint, which will show that you really do know what you’re doing. And if you think you will eventually use NoSQL in your scaled-out design, feel free to skip past SQL and go straight there.</p>
+<p>The case for starting with NoSQL from the beginning is actually stronger than ever. For example, not only does DynamoDB support tabular data, but as of 2018, it supports ACID, including strong consistency and serializable transactions. As you start to scale your system, many of the advantages of starting with SQL become moot because you end up having to denormalize and shard your data anyway.</p>
+<p>Perhaps more importantly, data model design for SQL and NoSQL are different, so you actually do have to make this choice before designing your data model. For SQL, data model design is mostly about entities, constraints, and relationships. For NoSQL, it is about denormalization, partition keys, range keys, and secondary indices. In my experience, candidates rarely attempt a NoSQL data model, so not only would you be giving yourself a head start in scaling out your system by using NoSQL from the beginning, but you would also stand out from the other candidates.</p>
+<p>After you’re done, make sure to go through all functional requirements and explain how they are achieved by your API and data model. This helps you find things you may have missed and helps the interviewer reach the conclusion that you are truly done with this phase.</p>
+<p>Scaling Your Design</p>
+<p>Next is scaling your design, that is, enhancing it so that it provides a good experience for millions of simultaneous users.</p>
+<p>Working with a diagram as you iterate on your design slows you down significantly. If it is asked of you, push off drawing the diagram until after you have fully designed the system. Only draw along the way if the interviewer is having trouble following along with you, and even then, only sketch the bare minimum needed to convey your ideas. What you should attempt to deliver instead of a diagram is a bulleted list of notes for each component.</p>
+<p>You can further increase your speed by offloading most of the work to speech. As you’re thinking through the different possibilities for each decision point, simply articulate them verbally as opposed to writing them down. Make sure to check in with the interviewer after each point to ensure they are truly following along. Only jot things down once you have finalized a particular aspect of your design. By using a combination of speech, notes, and diagrams, you can complete a scaled-out design in only 20 minutes, leaving you plenty of time remaining for you to showcase advanced systems design capabilities.</p>
+<p>After you’re done with your design, go through all the non-functional requirements and explain how your design delivers on them. In addition to helping you to identify when you have missed something, this final step leaves no doubt in your interviewer’s mind that you have achieved all requirements before you move on to extending your design and shooting for that higher level.</p>
+<p>Above and Beyond</p>
+<p>Unlike other candidates, at this point, you’ve got a solid 20 minutes left to... just play. Starting logging things to a distributed file system. Push that data through a MapReduce pipeline. Throw in a peer-to-peer protocol (”Let’s say things have really gone south (haha) with North Korea, and they’ve used their ICBMs to take out all AWS data centers....”). Maybe you can use a blockchain or zero-knowledge protocol somehow. This is your time to really show off, and yes, be a little bit silly.</p>
+<h2 id="rubric">Rubric</h2>
+<p><a href="https://blog.pramp.com/how-to-succeed-in-a-system-design-interview-27b35de0df26">How to Succeed in a System Design Interview</a></p>
+<h2 id="other-references">Other References</h2>
+<ul>
+<li>Go through system design primer -&gt; Grokking -&gt; YT</li>
+<li>Donne Martin - <a href="https://github.com/donnemartin/system-design-primer?trk=public_post_comment-text">System Design Primer</a></li>
+<li><a href="https://github.com/prasadgujar/low-level-design-primer/blob/master/solutions.md">Low Level Design primer</a></li>
+<li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/">Patterns of Distributed Systems</a> - Martin Fowler</li>
+<li><a href="https://www.notion.so/System-Design-Interview-42ba04ec67a9413fadad5b718fbd3e81">Notion - SDI</a> notes, same as <a href="https://www.notion.so/ashiskar/System-Design-Interview-42ba04ec67a9413fadad5b718fbd3e81">here</a></li>
+<li><a href="https://divyanshu-vibhu.gitbook.io/system-design/">https://divyanshu-vibhu.gitbook.io/system-design/</a></li>
+<li><a href="https://www.linkedin.com/posts/aditya-malshikhare_system-design-basics-handbook-ugcPost-6801799624563814400-jtT6">https://www.linkedin.com/posts/aditya-malshikhare_system-design-basics-handbook-ugcPost-6801799624563814400-jtT6</a></li>
+<li><a href="https://drive.google.com/file/d/16wtG6ZsThlu_YkloeyX8pp2OEjVebure/view">System Design Master doc</a></li>
+<li><a href="https://www.thinksoftwarelearning.com/courses/SystemDesignBible">The Bible of Distributed System Design Interviews</a></li>
+<li><a href="https://timilearning.com/">https://timilearning.com/</a></li>
+<li>Reddit <a href="https://www.reddit.com/r/cscareerquestions/comments/kd13sx/sharing_the_system_design_framework_ive_used_that/">System Design Framework</a></li>
+<li><a href="https://www.lewis-lin.com/blog/pedals-method">https://www.lewis-lin.com/blog/pedals-method</a></li>
+<li>Example - <a href="https://excalidraw.com/#room=b7ee44759dcc9ba29156,nzgKYEVNtVCaP3CGHsGGUQ">Design campaign to collect donations</a></li>
+<li><a href="https://sre.google/sre-book/distributed-periodic-scheduling/">Distributed Scheduler</a> SRE book</li>
+<li><a href="https://leetcode.com/discuss/general-discussion/1082786/System-Design%3A-Designing-a-distributed-Job-Scheduler-or-Many-interesting-concepts-to-learn">LeetCode</a></li>
+<li>YT <a href="https://www.youtube.com/channel/UC9vLsnF6QPYuH51njmIooCQ">System Design Interview</a> channel</li>
+<li>YT <a href="https://youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX">Gaurav Sen series</a></li>
+<li>YT <a href="https://www.youtube.com/playlist?list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar">Software Architecture Monday</a> playlist</li>
+<li>YT <a href="https://youtu.be/-W9F__D3oY4">David Malans cs75 scalability</a></li>
+<li>YT <a href="https://youtu.be/pjNTgULVVf4">david huffman's talk, scaling up talk</a></li>
+<li>YT <a href="https://youtu.be/fuGNXbfDLKc">Why the Internet went dark for two hours - Let's discuss the Akamai outage</a></li>
+<li>YT - <a href="https://youtu.be/6w6E_B55p0E">Scaling Push Messaging for Millions of Devices @Netflix</a></li>
+<li><a href="https://www.lecloud.net/tagged/scalability">Scalability for dummies</a></li>
+<li><a href="https://dataintensive.net/">Designing data intensive appliations</a></li>
+<li><a href="https://blog.interviewcamp.io/live-capacity-estimation-caching-levels/">https://blog.interviewcamp.io/live-capacity-estimation-caching-levels/</a></li>
+<li><a href="http://highscalability.com/blog/2016/6/27/how-facebook-live-streams-to-800000-simultaneous-viewers.html">How Facebook Live Streams to 800,000 Simultaneous Viewers - High Scalability</a></li>
+<li><a href="https://mlengineer.io/facebook-system-design-interview-4-must-watched-videos-212e07d4fbc2">Facebook system design interview: 4 must watched videos</a></li>
+<li>YT <a href="https://youtu.be/hnpzNAPiC0E">Scaling Instagram Infrastructure</a></li>
+<li>YT <a href="https://youtu.be/IO4teCbHvZw">Scaling Live videos to billions of users</a></li>
+<li>YT <a href="https://youtu.be/ODkEWsO5I30">Live commenting at facebook</a></li>
+<li>YT <a href="https://youtu.be/sNIvHttFjdI">TAO: Facebook distributed data store for social graph</a></li>
+<li>YT Channels</li>
+<li>YT <a href="https://www.youtube.com/c/DefogTech">Defog Tech</a></li>
+<li>YT <a href="https://www.youtube.com/user/UDIT19911">Udit Agarwal</a></li>
+<li>GitHub</li>
+<li>GitHub <a href="https://github.com/NikAshanin/Software-Architect-Cheat-Sheet">System Architect Cheatsheet</a></li>
+<li>GitHub <a href="https://github.com/kuchin/awesome-cto">Awesome CTO</a></li>
+<li>GitHub <a href="https://github.com/Olshansk/interview">Interview</a> prep</li>
+<li>GitHub Designs</li>
+<li>GitHub <a href="https://github.com/talent-plan/tinykv">Design KV Store</a> course</li>
+<li>GitHub <a href="https://github.com/weeeBox/mobile-system-design">Mobile System design</a></li>
+<li><a href="https://medium.com/codex/how-to-use-consistent-hashing-in-a-system-design-interview-b738be3a1ae3">How to Use Consistent Hashing in a System Design Interview?</a> - In a distributed system, any server responsible for a huge partition of data can become a bottleneck for the system. To handle these issues, Consistent Hashing introduces a new scheme of distributing the tokens to physical nodes. Instead of assigning a single token to a node, the hash range is divided into multiple smaller ranges, and each physical node is assigned several of these smaller ranges. Each of these subranges is considered a Vnode. Vnodes are randomly distributed across the cluster and are generally non-contiguous so that no two neighboring Vnodes are assigned to the same physical node or rack.</li>
+<li><a href="https://medium.com/walmartglobaltech/how-we-rebuilt-the-walmart-autocomplete-backend-10efe71d624a">How we rebuilt the Walmart Autocomplete Backend</a></li>
+<li><a href="https://sre.google/workbook/non-abstract-design/">https://sre.google/workbook/non-abstract-design/</a></li>
+<li>Google SRE <a href="https://docs.google.com/presentation/d/1jW2S9yYZf5DYmri0KlOu1DFSZMTeOswl6ce5V9xMIOQ/edit?resourcekey=0-hzg8gPkGgiOc6HbBqalmWg#slide=id.p">Distributed ImageServer</a> presentation</li>
+<li><a href="https://gist.github.com/jboner/2841832">Latency Numbers every programmer should know</a></li>
+<li>Stripe <a href="https://stripe.com/docs/api/idempotent_requests">Idempotent Requests</a></li>
+<li><a href="https://www.druva.com/blog/understanding-rpo-and-rto/">Understanding RPO and RTO | Druva</a></li>
+<li><a href="https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/dml/dmlAboutReads.html">How is data read?</a> - How Cassandra uses the Bloom filter?</li>
+<li>Doordash <a href="https://doordash.engineering/2021/07/14/open-source-search-indexing/">Building Faster Indexing with Apache Kafka and Elasticsearch</a></li>
+<li><a href="https://engineering.fb.com/2014/10/09/production-engineering/building-mobile-first-infrastructure-for-messenger/">Building Mobile-First Infrastructure for Messenger</a></li>
+<li><a href="https://engineering.fb.com/2021/01/26/ml-applications/news-feed-ranking/">How machine learning powers Facebook’s News Feed ranking algorithm</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/networking/azure-network-latency">Azure Network Latency</a></li>
+<li>KV Memory Design</li>
+<li><a href="http://www.lmdb.tech/bench/microbench/benchmark.html">LevelDB Benchmarks</a> - The KV memory store we designed is very similar to a basic version of levelsDB - which using 2011 hardware is able to handle 700k writes per second.</li>
+<li><a href="https://github.com/facebook/rocksdb/wiki/Performance-Benchmarks">RocksDB Performance Benchmarks</a></li>
+<li>System Designs</li>
+<li>YT - <a href="https://youtu.be/lYoSd2WCJTo">Netflix System Design | YouTube System Design</a></li>
+<li>YT - <a href="https://youtu.be/G32ThJakeHk">Zoom System Design | WhatsApp / FB Video Calling System Design</a></li>
+<li>YT - <a href="https://www.youtube.com/watch?v=CUwt9_l0DOg">Notification Service System Design Interview Question to handle Billions of users &amp; Notifications</a></li>
+</ul>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../shard-rdbms/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Shard RDBMS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Shard RDBMS
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../transactions-in-shopping/" class="md-footer__link md-footer__link--next" aria-label="Next: Transactions in Shopping" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Transactions in Shopping
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>

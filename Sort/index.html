@@ -1,0 +1,1176 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://learn-with-me.github.io/docs-system-design-architecture/Sort/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>To be sorted - System Design & Architecture</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ABC123"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ABC123",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ABC123",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#to-be-sorted" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://learn-with-me.github.io/docs-system-design-architecture/" title="System Design &amp; Architecture" class="md-header__button md-logo" aria-label="System Design & Architecture" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            System Design & Architecture
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              To be sorted
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/learn-with-me/docs-system-design-architecture" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://learn-with-me.github.io/docs-system-design-architecture/" title="System Design &amp; Architecture" class="md-nav__button md-logo" aria-label="System Design & Architecture" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    System Design & Architecture
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/learn-with-me/docs-system-design-architecture" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-system-design-fundamentals/" class="md-nav__link">
+        System Design Topics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Sort</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Sort" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Sort
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="availability/" class="md-nav__link">
+        Availability
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-aurora/" class="md-nav__link">
+        Amazon Aurora
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="backend-vs-frontend/" class="md-nav__link">
+        Backend vs Frontend
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="behavioral/" class="md-nav__link">
+        Behavioral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="counters-in-large-scale-systems/" class="md-nav__link">
+        Counters in Large scale systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="databases/" class="md-nav__link">
+        Databases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-alert-system/" class="md-nav__link">
+        Design an Alert System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-an-application/" class="md-nav__link">
+        Design an application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-chat-messaging/" class="md-nav__link">
+        Design Chat Messaging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-chess/" class="md-nav__link">
+        Design Chess
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-db-connector/" class="md-nav__link">
+        Design a DB Connector
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-delayed-payment/" class="md-nav__link">
+        Design a system for delayed payment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-distributed-queue/" class="md-nav__link">
+        Design distributed queue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-email-system/" class="md-nav__link">
+        Design Email System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-google-doc/" class="md-nav__link">
+        Design a Google Doc system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-log-transporter/" class="md-nav__link">
+        Design Read 1Mb log files from client machines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-real-time-collab/" class="md-nav__link">
+        Design Real-time collab tool
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-stock-exchange/" class="md-nav__link">
+        Design a Stock Exchange
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-ticket-sales-service/" class="md-nav__link">
+        Design Ticket Sales service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design-top-k-frequent/" class="md-nav__link">
+        Design top k frequent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hashmap-based-caching/" class="md-nav__link">
+        HashMap based caching
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="interview-experience/" class="md-nav__link">
+        Interview Experience
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="load-balancing/" class="md-nav__link">
+        Load Balancing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rate-limiting-throttling/" class="md-nav__link">
+        Rate Limiting / Throttling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shard-rdbms/" class="md-nav__link">
+        Shard RDBMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="system-design-template/" class="md-nav__link">
+        System Design Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="transactions-in-shopping/" class="md-nav__link">
+        Transactions in Shopping
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#calculate-network-bandwidth-requirement" class="md-nav__link">
+    Calculate network bandwidth requirement
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-youtube-view-history" class="md-nav__link">
+    Design YouTube view history
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sync-data-for-large-number-of-devices" class="md-nav__link">
+    Sync data for large number of devices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consistent-hashing" class="md-nav__link">
+    Consistent Hashing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fanout-implementation" class="md-nav__link">
+    Fanout Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    Lambda
+  </a>
+  
+    <nav class="md-nav" aria-label="Lambda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#other-references" class="md-nav__link">
+    Other References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-instagram-vs-twitter" class="md-nav__link">
+    Design Instagram vs Twitter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kafka" class="md-nav__link">
+    Kafka
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-consensus" class="md-nav__link">
+    Distributed Consensus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-questions" class="md-nav__link">
+    Open Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#really-random-things" class="md-nav__link">
+    Really Random things
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/learn-with-me/docs-system-design-architecture/edit/master/docs/Sort/index.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="to-be-sorted">To be sorted</h1>
+<h2 id="calculate-network-bandwidth-requirement">Calculate network bandwidth requirement</h2>
+<p>How to calculate network bandwidth requirements for a video sharing site like YouTube. Assume average video size is 100MB and 500000 users uploading 1 video per day. 5 million daily active users seeing 5 videos per day.</p>
+<p>You will probably not upload all video to 1 DC and 1 host. How many DC and hosts will you use? Let’s assume we need this globally. So 4 availability zones, 2 DC each, 2 hosts per DC</p>
+<h2 id="design-youtube-view-history">Design YouTube view history</h2>
+<p>Design YouTube view history. Discuss system architecture, data storage etc.</p>
+<p>What is the storage system you would use, why and how?</p>
+<h2 id="sync-data-for-large-number-of-devices">Sync data for large number of devices</h2>
+<p>Design of how data is synced when there are large number of devices and data is updating rapidly. Like we wear fitness bands, data is updated with every step in the band and then synced with the global storage.</p>
+<p>What is the point of sync that on every step?
+There are multiple reasons of not to do that</p>
+<ol>
+<li>it's expensive</li>
+<li>the device doesn't have an internet connection all the time</li>
+<li>it consumes a lot of battery</li>
+<li>and probably the main reason: it is not needed to have such an latency on syncing that. it's not a HFT thing</li>
+</ol>
+<p>Then how is data synced behind the scenes?  What is the architecture?
+I'd upload the data (whatever precision is required) into a cell phone via bt and just send an butch update to the server.
+DB depends on requirements, might be wide column, or time series db</p>
+<h2 id="consistent-hashing">Consistent Hashing</h2>
+<ul>
+<li><a href="https://www.acodersjourney.com/system-design-interview-consistent-hashing/">https://www.acodersjourney.com/system-design-interview-consistent-hashing/</a></li>
+</ul>
+<h2 id="fanout-implementation">Fanout Implementation</h2>
+<p>What's your thought for fanout implementation  - listen change stream + lambda  instead of a queue + consumer? consider you have high write throughput.
+I wanted to understand the limitation of Lambda. I got the answer. Example, timeline update for follower in twitter system.
+If you want to build listen change stream you need to use a queue internally + consumer.</p>
+<h2 id="lambda">Lambda</h2>
+<p>I dont recommend lambda for low latency, HA and high throughput usecases. Lambda cold starts are pretty well knows time consumers and you'd have to account to the latency addition (sometimes in seconds).</p>
+<p><a href="https://aws.amazon.com/blogs/compute/new-for-aws-lambda-predictable-start-up-times-with-provisioned-concurrency/">https://aws.amazon.com/blogs/compute/new-for-aws-lambda-predictable-start-up-times-with-provisioned-concurrency/</a></p>
+<p>You won't have cold start with Provisioned Concurrency. You are gonna pay for it and it's not cheap. basically what PC does is to warm up some additional containers (more containers, more $), ready to serve a request. also say you have 100 containers ready and you get a burst call of 101 requests which makes the last call a cold-start one.</p>
+<h3 id="other-references">Other References</h3>
+<ul>
+<li><a href="https://databricks.com/glossary/lambda-architecture">https://databricks.com/glossary/lambda-architecture</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lambda_architecture">https://en.wikipedia.org/wiki/Lambda_architecture</a></li>
+</ul>
+<h2 id="design-instagram-vs-twitter">Design Instagram vs Twitter</h2>
+<p>Can I say that system design for twitter vs instagram is the same except that twitter has 140 char limit?
+Rest seems to be same. user posts txt, img &amp; video. Fanout to followers with celebrity as special case. Read heavy.. say 10 times of write.. eventual consistency is fine.</p>
+<ul>
+<li>follow part is totaly different in twitter and insta</li>
+<li>Instagram should be media heavy than Twitter</li>
+<li>The way news feed is computed is totally different in both. The main idea of any news feed is fanout.</li>
+</ul>
+<p>In write heavy scenario. if we have more reads that writes its better to spend more time in write to prerate data so that read will be cheaper.</p>
+<h2 id="kafka">Kafka</h2>
+<p>It is worth noting that typically only one consumer within a consumer group is subscribed to a partition... [1] this is how Kafka achieves high message processing throughput. So, even in the case of multiple partitions, messages within a single partition are truly processed in the order they were sent.</p>
+<p>Also worth noting is that partitions are specific to Kafka. For example, Google Cloud Pub/Sub doesn’t expose partitions to the user — they are there, but they are behind the scenes. [2].</p>
+<p>In a systems design interview, it is sufficient to just talk about topics and subscribers. There is no need to go deeper than topics or to mention specific products. In fact, I am told by an insider that mentioning specific products is frowned upon at Google, which has its own version of all the open-source projects (and more).</p>
+<p>[1] “Each partition is connected to at most one consumer from a group.” <a href="https://blog.cloudera.com/scalability-of-kafka-messaging-using-consumer-groups/">https://blog.cloudera.com/scalability-of-kafka-messaging-using-consumer-groups/</a></p>
+<p>[2] “Partitions are not exposed to users.” <a href="https://medium.com/google-cloud/google-cloud-pub-sub-ordered-delivery-1e4181f60bc8">https://medium.com/google-cloud/google-cloud-pub-sub-ordered-delivery-1e4181f60bc8</a></p>
+<ul>
+<li>Confluent <a href="https://www.confluent.io/blog/build-services-backbone-events/">Build Services on a Backbone of Events</a></li>
+<li>Confluent <a href="https://www.confluent.io/blog/apache-kafka-supports-200k-partitions-per-cluster/">Apache Kafka Supports 200K Partitions Per Cluster</a></li>
+<li><a href="https://blog.containerize.com/2021/04/09/kafka-vs-redis-pub-sub-differences-which-you-should-know/">Kafka vs Redis Pub-Sub, Differences which you should know</a></li>
+<li>YT - <a href="https://www.youtube.com/watch?v=Ea3aoACnbEk">Kafka: A Modern Distributed System</a></li>
+</ul>
+<h2 id="distributed-consensus">Distributed Consensus</h2>
+<p>To get Redis to be fault tolerant for this use case, you need to give up the idea of a partially synchronous system, or you need to sync up state using transactions, or you need a Redis master node. Basically to have consistent state in Redis is difficult and to get it, you need to give up a lot.</p>
+<p>So one answer is a distributed consensus algo, where at least the majority of nodes agree on state. This eliminates a lot of the problems and possible bottlenecks that Redis might have.</p>
+<p>But Replicated State machines, configuration stores, leader election, distributed locking are all very good use cases for distribute consensus. Distributed concensus algos, in general, allow you to cheat some of the problems that "normal" concensus patterns might have.</p>
+<p>There's no free lunch of course, these algos have serious problems with round trip times. and other concerns. It's not some magic solution.</p>
+<p>If that data can't change, it reduces the complexity and need for these algos.</p>
+<p><a href="https://sre.google/sre-book/managing-critical-state/">https://sre.google/sre-book/managing-critical-state/</a></p>
+<h2 id="open-questions">Open Questions</h2>
+<ul>
+<li>LLD design for Log4J library</li>
+</ul>
+<h2 id="really-random-things">Really Random things</h2>
+<ul>
+<li><a href="https://engineering.fb.com/2021/04/05/video-engineering/how-facebook-encodes-your-videos/">https://engineering.fb.com/2021/04/05/video-engineering/how-facebook-encodes-your-videos/</a></li>
+<li><a href="https://blog.dream11engineering.com/building-scalable-real-time-analytics-alerting-and-anomaly-detection-architecture-at-dream11-e20edec91d33">https://blog.dream11engineering.com/building-scalable-real-time-analytics-alerting-and-anomaly-detection-architecture-at-dream11-e20edec91d33</a> - scaling for dimensionality, aggregated data, metrics after I collect the data. Collecting the data from devices. around 1.2 billions devices a day. Edge computing means at the device, some level of aggregations should happen and collect the data through HTTP through Kafka by topic</li>
+<li><a href="https://medium.com/@jadsarmo/why-we-chose-java-for-our-high-frequency-trading-application-600f7c04da94">https://medium.com/@jadsarmo/why-we-chose-java-for-our-high-frequency-trading-application-600f7c04da94</a></li>
+<li><a href="https://netflixtechblog.com/how-netflix-uses-ebpf-flow-logs-at-scale-for-network-insight-e3ea997dca96">https://netflixtechblog.com/how-netflix-uses-ebpf-flow-logs-at-scale-for-network-insight-e3ea997dca96</a></li>
+<li>Cloudflare <a href="https://blog.cloudflare.com/cloudflare-architecture-and-how-bpf-eats-the-world/">Cloudflare architecture and how BPF eats the world</a> - incredible articles
+  Cloudflare <a href="https://www.cloudflare.com/learning/cdn/caching-static-and-dynamic-content/">CDN Caching</a> - Dynamic content is generated by scripts that change the content on a page. By running scripts in a CDN cache instead of in a distant origin server, dynamic content can be generated and delivered from a cache. Dynamic content is thus essentially "cached" and does not have to be served all the way from the origin, reducing the response time to client requests and speeding up dynamic webpages. Cloudflare Workers, for example, are serverless JavaScript functions that run on the Cloudflare CDN</li>
+<li><a href="https://betterprogramming.pub/a-closer-look-at-etcd-the-brain-of-a-kubernetes-cluster-788c8ea759a5">A Closer Look At Etcd: The Brain Of A Kubernetes Cluster</a>etcd will almost always be the bottleneck because everything is stored there by API Server</li>
+<li>AirBnb - <a href="https://medium.com/airbnb-engineering/avoiding-double-payments-in-a-distributed-payments-system-2981f6b070bb">Avoiding Double Payments in a Distributed Payments System</a></li>
+<li><a href="https://logz.io/blog/kafka-vs-redis/">https://logz.io/blog/kafka-vs-redis/</a></li>
+<li><a href="https://www.educba.com/redis-vs-kafka/">https://www.educba.com/redis-vs-kafka/</a></li>
+<li>YT <a href="https://www.youtube.com/watch?v=EO6KgpAOea4">Query Petabyte Scale Dataset on S3</a></li>
+<li>YT <a href="https://www.youtube.com/channel/UCZEfiXy7PmtVTezYUvc4zZw">https://www.youtube.com/channel/UCZEfiXy7PmtVTezYUvc4zZw</a> - 14 videos on this YouTube channel. This dude has nice videos, beginner friendly. The databases video summed it up pretty well, i would suggest it to beginners aswell who want a databases overview</li>
+<li>YT <a href="https://youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB">MIT 6.824 Distributed Systems (Spring 2020)</a></li>
+<li>YT <a href="https://www.youtube.com/watch?v=BO761Fj6HH8">Four Distributed Systems Architectural Patterns by Tim Berglund</a></li>
+<li>YT <a href="https://youtu.be/4_jlmX_oB94">Designing Udemy's Taxonomy on SQL | System Design</a></li>
+<li>YT <a href="https://youtu.be/H0pWdbbPH_U">Cancel token</a></li>
+<li>YT - <a href="https://www.youtube.com/watch?v=qeLekzZc3XU">Airbnb Search Architecture</a></li>
+<li>YT - <a href="https://youtu.be/QWeO2OB40VY">Consistent Hashing Rajeev</a> - Basically, nodes are arranged in a ring structure (not actually a ring but conceptually). Each node is responsible for keys hashed between it and its predecessor in the ring. Node placement has nothing to do with hash function used or how keys are hashed- instead it’s based on data, mostly to spread data evenly across all nodes. A virtual node placed in the ring structure would relieve load on its successor.</li>
+<li>YT - <a href="https://www.youtube.com/watch?v=WmPKzFYKijM">why it is very hard to cancel an HTTP request</a></li>
+<li>YT - <a href="https://www.youtube.com/watch?v=0vdW1ORLWyk">AWS re:Invent 2017: Architecting a data lake with Amazon S3, Amazon Kinesis, and Ama (ABD318)</a> - Atlassian built a data lake from S3, Kinesis, Glue, and Athena</li>
+<li>YT - <a href="https://www.youtube.com/watch?v=OYY3XR2JT3o&amp;ab_channel=ieeeComputerSociety">Episode 109: eBay’s Architecture Principles with Randy Shoup</a> - a great podcast by Randy Shoup ( VP Engineering and Chief Architect  at Ebay) on ebay Architecture principles</li>
+<li>YT - <a href="https://youtu.be/yqc3PPmHvrA">Streaming a Million Likes/Second: Real-Time Interactions on Live Video</a></li>
+<li>YT - <a href="https://youtu.be/TWxSLmkWPm4">Watermarks: Time and Progress in Apache Beam and Beyond</a> - about event time ordering</li>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design">https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design</a> - references for API design best practices. Very comprehensive collection of best practices</li>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/index-patterns">https://docs.microsoft.com/en-us/azure/architecture/patterns/index-patterns</a></li>
+<li>Java Prep</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/">https://docs.oracle.com/javase/tutorial/</a></li>
+<li><a href="https://github.com/javadroider/interview-prep/tree/master/interview">https://github.com/javadroider/interview-prep/tree/master/interview</a></li>
+<li><a href="https://netflix.github.io/atlas-docs/overview/">https://netflix.github.io/atlas-docs/overview/</a></li>
+<li><a href="https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/">https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/</a></li>
+<li><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/">https://leetcode.com/problems/median-of-two-sorted-arrays/</a> - pretty much needs a big trick/2 and even then the edge cases are hard to explain/code in the timeframe, esp without prev practice.</li>
+<li>U can share ur screen with <a href="sketchboard.io">sketchboard.io</a> or digital pad+pencil works well with google jamboard. I simply share my screen on hangouts or zoom and diacuss on sketchboard.io
+If thats not possible then macbook sidecar with ipad and using this i can write or draw on any digital whiteboard. I have tried with jamboard.</li>
+<li>DDIA Notes</li>
+<li><a href="https://github.com/keyvanakbary/learning-notes/blob/master/books/designing-data-intensive-applications.md">DDIA notes - keyvanakbary</a></li>
+<li><a href="https://github.com/ibillett/designing-data-intensive-applications-notes">DDIA notes - ibillett</a></li>
+<li><a href="https://timilearning.com/posts/ddia/notes/">DDIA notes - xx</a></li>
+<li><a href="https://comeshare.net/2020/04/02/designing-data-intensive-applications-chapter-1-reliable-scalable-and-maintainable-applications/">DDIA Chapter 1</a></li>
+<li><a href="https://chiragshah9696.medium.com/interviews-interviews-interviews-7407faf4c7cc">https://chiragshah9696.medium.com/interviews-interviews-interviews-7407faf4c7cc</a></li>
+<li><a href="https://betterprogramming.pub/top-30-apple-coding-interview-questions-with-solutions-19990071ebfc">https://betterprogramming.pub/top-30-apple-coding-interview-questions-with-solutions-19990071ebfc</a></li>
+<li>MongoDB</li>
+<li>Reddit - <a href="https://news.ycombinator.com/item?id=17497164">cons of mongodb</a></li>
+<li><a href="https://diginomica.com/hsbc-moves-65-relational-databases-one-global-mongodb-database">HSBC moves to MongoDB</a></li>
+<li>end to end system design with data generation, data ingestion, data aggregation, and data representation</li>
+<li>XMPP is decentralized whereas WebSockets are centralized. XMPP works on the application layer whereas WebSockets are a transport protocol</li>
+<li><a href="https://aws.amazon.com/blogs/compute/using-amazon-api-gateway-as-a-proxy-for-dynamodb/">https://aws.amazon.com/blogs/compute/using-amazon-api-gateway-as-a-proxy-for-dynamodb/</a></li>
+<li>Leaderboard - <a href="https://medium.com/@sandeep4.verma/building-real-time-leaderboard-with-redis-82c98aa47b9f">Building real-time Leaderboard with Redis</a></li>
+<li><a href="www.dnsstuff.com/what-is-server-load-balancing">What Is Load Balancing? Types, Configurations, and Best Tools - DNSstuff</a></li>
+<li>Architecture blogs</li>
+<li>Fraud Detection - at the simplest, it's just a stream of events and some query or model looking over the data<ul>
+<li>AWS <a href="https://docs.aws.amazon.com/solutions/latest/fraud-detection-using-machine-learning/architecture.html">Architecture Overview - Fraud Detection Using Machine Learning</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/fraud-detection">Real-time fraud detection - Azure Example Scenarios</a></li>
+</ul>
+</li>
+<li><a href="https://hackernoon.com/developing-a-flash-sale-system-7481f6ede0a3">Developing a flash sale system | HackerNoon</a></li>
+<li>News Feed Ranking<ul>
+<li>Meta <a href="https://engineering.fb.com/2021/01/26/ml-applications/news-feed-ranking/">How machine learning powers Facebook’s News Feed ranking algorithm</a></li>
+<li><a href="https://blog.hootsuite.com/facebook-algorithm/">How the Facebook Algorithm Works in 2023</a></li>
+</ul>
+</li>
+<li>Stack Overflow <a href="https://stackoverflow.com/questions/22090229/how-did-whatsapp-achieve-2-million-connections-per-server">How did WhatsApp achieve 2 million connections per server?</a></li>
+<li>Stack Overflow <a href="https://stackoverflow.com/questions/47003336/elasticsearch-index-sharding-explanation">Elasticsearch index sharding explanation</a></li>
+<li><a href="https://microservices.io/">https://microservices.io/</a></li>
+<li><a href="http://distributedsystemscourse.com/">http://distributedsystemscourse.com/</a></li>
+<li>Push notifications</li>
+<li><a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app</a></li>
+<li>Concurrency &amp; Parallelsim</li>
+<li><a href="https://nikgrozev.com/2015/07/14/overview-of-modern-concurrency-and-parallelism-concepts/">Overview of Modern Concurrency and Parallelism Concepts</a></li>
+<li>Educative <a href="https://github.com/rahulgupta-rg/java-senior-interviews/blob/main/1_Introduction-combined.pdf">Multithreading</a> notes</li>
+<li><a href="https://www.baeldung.com/thread-pool-java-and-guava">Introduction to Thread Pools in Java | Baeldung</a></li>
+<li><a href="http://tutorials.jenkov.com/java-concurrency/index.html">Java Concurrency and Multithreading Tutorial</a></li>
+<li>REST vs RPC</li>
+<li><a href="https://cloud.google.com/blog/products/api-management/understanding-grpc-openapi-and-rest-and-when-to-use-them">gRPC vs REST: Understanding gRPC, OpenAPI and REST and when to use them in API design | Google Cloud Blog</a></li>
+<li>YT <a href="https://youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB">Distributed Systems lecture series</a></li>
+<li>Coding / OO problems</li>
+<li><a href="https://workat.tech/machine-coding/practice/design-tic-tac-toe-smyfi9x064ry">Design Tic Tac Toe</a> - establish a contract of a board that an implementer would fulfill</li>
+<li><a href="https://workat.tech/machine-coding/practice/snake-and-ladder-problem-zgtac9lxwntg">Snake and Ladder</a>
+  <a href="https://en.wikipedia.org/wiki/HyperLogLog">HyperLogLog</a> - probabilistic data structure</li>
+<li><a href="https://leetcode.com/problems/design-search-autocomplete-system/">https://leetcode.com/problems/design-search-autocomplete-system/</a></li>
+<li><a href="https://www.oodesign.com">https://www.oodesign.com</a></li>
+<li><a href="https://github.com/iluwatar/java-design-patterns">https://github.com/iluwatar/java-design-patterns</a></li>
+<li><a href="https://pages.cs.wisc.edu/~cao/papers/summary-cache/node8.html">Bloom Filter</a></li>
+<li>Cassandra <a href="https://cassandra.apache.org/doc/latest/cassandra/operating/bloom_filters.html">Bloom Filters</a></li>
+<li><a href="https://engineering.fb.com/2021/07/09/data-infrastructure/ribbon-filter/">Ribbon Filter</a></li>
+<li><a href="https://serverfault.com/questions/238417/are-networks-now-faster-than-disks">https://serverfault.com/questions/238417/are-networks-now-faster-than-disks</a></li>
+<li><a href="https://thenewstack.io/datadog-monitors-scalable-systems/">https://thenewstack.io/datadog-monitors-scalable-systems/</a></li>
+<li><a href="https://nakabonne.dev/posts/write-tsdb-from-scratch/">Write a time-series database engine from scratch</a></li>
+<li>Datadog <a href="https://www.datadoghq.com/blog/elasticsearch-performance-scaling-problems/">How to solve 5 Elasticsearch performance and scaling problems</a></li>
+<li><a href="https://blog.flipkart.tech/remodelling-flipkarts-serviceability-data-an-optimization-journey-from-300-gb-to-150-mb-in-memory-5c7e9c38bde">Optimizing Flipkart’s Serviceability Data from 300 GB to 150 MB in-memory</a></li>
+<li>Leadership Principles <a href="https://www.levels.fyi/blog/amazon-leadership-principles.html">https://www.levels.fyi/blog/amazon-leadership-principles.html</a></li>
+<li>YT - <a href="https://www.youtube.com/playlist?list=PLLucmoeZjtMR990BPePcn5WgoCM_OX0YB">Amazon Interrview Questions</a> playlist</li>
+<li><a href="https://druid.apache.org/">https://druid.apache.org/</a></li>
+<li><a href="https://linkerd.io/">https://linkerd.io/</a></li>
+<li><a href="https://stackoverflow.com/questions/2332741/what-is-the-theoretical-maximum-number-of-open-tcp-connections-that-a-modern-lin">theoretical-maximum-number-of-open-tcp-connections-that-a-modern-linux</a></li>
+<li><a href="https://arstechnica.com/information-technology/2012/04/exclusive-a-behind-the-scenes-look-at-facebook-release-engineering/">Exclusive: a behind-the-scenes look at Facebook release engineering</a> - explains a bit on how to copy 38 GB file located in US to all the 1000 Data Center located in China. All Data Center are loaded with work and using all bandwidth might affect the work. (BitTorrent like question)</li>
+<li><a href="https://thenewstack.io/sky-computing-the-next-era-after-cloud-computing/">Sky Computing, the Next Era After Cloud Computing</a></li>
+<li><a href="https://cloud.google.com/solutions/sequence-generation-in-cloud-spanner">Sequence Generation in Cloud Spanner</a></li>
+<li>Stack Overflow <a href="https://stackoverflow.com/questions/2671858/distributed-sequence-number-generation">Distributed Sequence Number Generation</a></li>
+<li>Redis <a href="https://redis.io/commands/incr/">INCR</a></li>
+</ul>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../glossary/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Glossary" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Glossary
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="availability/" class="md-footer__link md-footer__link--next" aria-label="Next: Availability" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Availability
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
